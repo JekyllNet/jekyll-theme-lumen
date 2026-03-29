@@ -1,0 +1,25 @@
+{% if page.translation_links %}
+  <div class="article-tools">
+    <div class="article-language-switch">
+      <span>{{ page.ui_translation_caption }}</span>
+      {% for translation in page.translation_links %}
+        <a href="{{ translation.url | prepend: site.baseurl }}">
+          <small>{{ page.ui_translation_small }}</small>
+          <strong>{{ translation.label }}</strong>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+{% else %}
+  {% if page.translation_url %}
+    <div class="article-tools">
+      <div class="article-language-switch">
+        <span>{{ page.ui_translation_caption }}</span>
+        <a href="{{ page.translation_url | prepend: site.baseurl }}">
+          <small>{{ page.ui_translation_small }}</small>
+          <strong>{{ page.ui_translation_target_label }}</strong>
+        </a>
+      </div>
+    </div>
+  {% endif %}
+{% endif %}

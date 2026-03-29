@@ -1,0 +1,41 @@
+{% assign current_locale = page.locale_code | default: page.lang | split: "-" | first %}
+<header class="site-header">
+  <div class="container header-shell">
+    <div class="header-start">
+      <a class="brand" href="{{ page.ui_home_url | prepend: site.baseurl }}">
+        <span class="brand-mark">
+          <img src="{{ site.logo | default: '/assets/brand/logo.svg' | prepend: site.baseurl }}" alt="{{ site.title }} logo">
+        </span>
+        <span class="brand-copy">
+          <strong>{{ site.title }}</strong>
+          <small>{{ page.ui_brand_subtitle }}</small>
+        </span>
+      </a>
+
+      <div class="lang-switch" aria-label="{{ page.ui_switch_label }}">
+        {% for locale in site.locales %}
+          <a href="{{ locale.root | prepend: site.baseurl }}" class="{% if current_locale == locale.code %}is-active{% endif %}">{{ locale.label }}</a>
+        {% endfor %}
+      </div>
+    </div>
+
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a href="{{ page.ui_docs_url | prepend: site.baseurl }}" class="{% if page.nav_key == 'docs' %}is-active{% endif %}">{{ page.ui_docs_label }}</a>
+      <a href="{{ page.ui_news_url | prepend: site.baseurl }}" class="{% if page.nav_key == 'news' %}is-active{% endif %}">{{ page.ui_news_label }}</a>
+      <a href="{{ page.ui_blog_url | prepend: site.baseurl }}" class="{% if page.nav_key == 'blog' %}is-active{% endif %}">{{ page.ui_blog_label }}</a>
+
+      {% if site.source_url %}
+      <details class="nav-menu">
+        <summary>{{ page.ui_source_label }}</summary>
+        <div class="nav-menu-panel">
+          <a href="{{ site.source_url }}" target="_blank" rel="noreferrer">GitHub</a>
+          {% if site.source_readme_url %}<a href="{{ site.source_readme_url }}" target="_blank" rel="noreferrer">README</a>{% endif %}
+          {% if site.source_sample_url %}<a href="{{ site.source_sample_url }}" target="_blank" rel="noreferrer">{{ page.ui_source_sample_label | default: 'Sample' }}</a>{% endif %}
+        </div>
+      </details>
+      {% endif %}
+
+      <a href="{{ page.ui_about_url | prepend: site.baseurl }}" class="{% if page.nav_key == 'about' %}is-active{% endif %}">{{ page.ui_about_label }}</a>
+    </nav>
+  </div>
+</header>

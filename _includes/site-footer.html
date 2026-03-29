@@ -1,0 +1,28 @@
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <section>
+      <h2>{{ site.title }}</h2>
+      <p>{{ page.ui_footer_intro }}</p>
+    </section>
+
+    <section>
+      <h2>{{ page.ui_footer_docs_title }}</h2>
+      <ul>
+        <li><a href="{{ page.ui_docs_url | prepend: site.baseurl }}">{{ page.ui_footer_doc_map_label }}</a></li>
+        <li><a href="{{ page.ui_getting_started_url | prepend: site.baseurl }}">{{ page.ui_footer_getting_started_label }}</a></li>
+        <li><a href="{{ page.ui_github_pages_url | prepend: site.baseurl }}">{{ page.ui_footer_github_pages_label }}</a></li>
+        <li><a href="{{ page.ui_news_url | prepend: site.baseurl }}">{{ page.ui_footer_news_label }}</a></li>
+        <li><a href="{{ page.ui_blog_url | prepend: site.baseurl }}">{{ page.ui_footer_blog_label }}</a></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>{{ page.ui_footer_project_title }}</h2>
+      <ul>
+        {% if site.source_url %}<li><a href="{{ site.source_url }}">GitHub</a></li>{% endif %}
+        {% if site.source_readme_url %}<li><a href="{{ site.source_readme_url }}">README</a></li>{% endif %}
+        {% if site.source_sample_url %}<li><a href="{{ site.source_sample_url }}">{{ page.ui_source_sample_label | default: 'Sample' }}</a></li>{% endif %}
+      </ul>
+    </section>
+  </div>
+</footer>

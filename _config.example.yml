@@ -1,0 +1,64 @@
+# jekyll-theme-lumen — example _config.yml
+# Copy this to your site's _config.yml and fill in your values.
+
+title: My Site
+description: A clean, multilingual documentation site powered by jekyll-theme-lumen.
+lang: en
+timezone: UTC
+url: https://example.com
+baseurl: ""
+markdown: kramdown
+show_excerpts: false
+
+# Brand assets (paths relative to baseurl)
+# logo:    /assets/brand/logo.svg     # replaces placeholder logo
+# favicon: /assets/brand/favicon.svg  # replaces placeholder favicon
+
+# Source links — shown in header dropdown and footer
+# source_url:        https://github.com/your-org/your-repo
+# source_readme_url: https://github.com/your-org/your-repo/blob/main/README.md
+# source_sample_url: https://github.com/your-org/your-repo/tree/main/sample-site
+
+# Multilingual locales — rendered as a language-switch pill in the header
+locales:
+  - code: en
+    root: /en/
+    label: English
+  # - code: zh
+  #   root: /zh/
+  #   label: 中文
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+      # ── navigation URLs ──────────────────────────────────────────────
+      ui_home_url: /en/
+      ui_docs_url: /en/navigation/
+      ui_news_url: /en/news/
+      ui_blog_url: /en/blog/
+      ui_about_url: /en/about/
+      ui_getting_started_url: /en/getting-started/
+      ui_github_pages_url: /en/github-pages/
+      # ── nav labels ───────────────────────────────────────────────────
+      ui_brand_subtitle: Project documentation
+      ui_docs_label: Docs
+      ui_news_label: News
+      ui_blog_label: Blog
+      ui_about_label: About
+      ui_source_label: Source
+      ui_switch_label: Language
+      # ── footer content ───────────────────────────────────────────────
+      ui_footer_intro: A lumen-powered documentation site.
+      ui_footer_docs_title: Docs
+      ui_footer_project_title: Project
+      ui_footer_doc_map_label: Documentation map
+      ui_footer_getting_started_label: Getting started
+      ui_footer_github_pages_label: Deployment
+      ui_footer_news_label: News
+      ui_footer_blog_label: Blog
+      # ── language switch (article-level) ──────────────────────────────
+      ui_translation_caption: Language
+      ui_translation_small: Also available in
+      ui_translation_target_label: 中文
